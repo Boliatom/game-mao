@@ -68,6 +68,7 @@ def switch_windows():
     b = 0
     c = 0
     v = 0
+    q = 0
     def prolog(c):
         prolog1 = ['Куда направляешься?', 'Тебе нечего тут делать',
                    'У тебя есть шанс уйти, просто нажми [ESC]', 'Эй, почему ты не уходишь?', 'Стой, стой, стой','Возможно,ты меня не понял, но тебе правда лучше уйти',
@@ -214,7 +215,18 @@ def switch_windows():
         v += 1
         return v
 
-
+    def dialog4(q):
+        pin1 = pygame.image.load('pin1.png')
+        win2.blit(pin1, (590, 170))
+        sl_1 = pygame.image.load('sl_1.png')
+        win2.blit(sl_1, (590, 170))
+        pygame.display.update()
+        i = { 'Неизвестная аномалия' : ' Вы не знаете эту аномалию'}
+        f3 = pygame.font.SysFont('Segoe print', 20)
+        text3 = f3.render('Неизвестная аномалия' + ' - ' + i.get('Неизвестная аномалия'), True, (255, 250, 240))
+        win2.blit(text3, (600, 750))
+        q += 1
+        return q
     while True:
 
         font1 = pygame.font.SysFont('Segoe print', 17)
@@ -248,6 +260,9 @@ def switch_windows():
 
                     pygame.display.update()
                     v = pasxalka(v)
+                elif event.key == pygame.K_z:
+                    q = dialog4(q)
+
 
         pygame.display.update()
 
